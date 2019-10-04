@@ -1,6 +1,9 @@
-#Media room snapcast setup
+Media room snapcast setup
+=========================
 
-##Interesting commands
+Interesting commands
+--------------------
+`
 sudo apt install gnome-disk-utility
 sudo apt install net-tools
 sudo apt-get install build-essential
@@ -14,8 +17,10 @@ rm snapclient_0.15.0-1_amd64.deb
 sudo snap install htop
 sudo apt install vim
 sudo systemctl disable snapclient
+`
 
-##HDMI setup
+HDMI setup
+----------------------------
 Force Ubuntu to use HDMI audio output
 
 This command makes it easier to see what my actual output options are:
