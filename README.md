@@ -42,11 +42,13 @@ Set: `gsettings set org.gnome.desktop.interface cursor-size [sizeInPixels]`
 ```
 sudo mkdir /media/nas_movies
 sudo mkdir /media/nas_music
+sudo mkdir /media/nas_tv_shows
 ```
 ```
 sudo echo \
 "192.168.0.2:/data/Movies  /media/nas_movies nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0 \
 192.168.0.2:/data/Music  /media/nas_music nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0" \
+192.168.0.2:/data/TV_Shows  /media/nas_tv_show nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0" \
 >> /etc/fstab2
 ```
 
