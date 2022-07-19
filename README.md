@@ -46,13 +46,37 @@ sudo mkdir /media/nas_tv_shows
 ```
 ```
 sudo echo \
-"192.168.0.2:/data/Movies  /media/nas_movies nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0 \
+"192.168.0.2:/data/Movies  /media/nas_music nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0 \
 192.168.0.2:/data/Music  /media/nas_music nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0" \
-192.168.0.2:/data/TV_Shows  /media/nas_tv_show nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0" \
+192.168.0.2:/data/TV_Shows  /media/nas_tv_shows nfs rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0  0" \
+>> /etc/fstab2
+```
+
+```
+sudo echo \
+"//nas.local/movies /media/nas_music cifs guest,uid=1000 0 0 \
+//nas.local/music /media/nas_music cifs guest,uid=1000 0 0 \
+//nas.local/TV_Shows /media/nas_tv_shows cifs guest,uid=1000 0 0" \
 >> /etc/fstab2
 ```
 
 `sudo mount -a`
+
+`rsync -r --info=progress2 --delete /media/nas_music/ ~/Music/`
+
+## DNLA - Sharing - rygel
+Ubuntu 19.10’s new ‘Media Sharing’ toggle in Settings > Sharing means there’s no need to download and install a separate DLNA server client to share media photos, videos and music over your local network.
+
+
+##Proton VPN
+
+Dowloand and install the deb 
+https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb
+`sudo apt-get update`
+`sudo apt-get install protonvpn`
+`sudo apt install gnome-shell-extension-appindicator gir1.2-appindicator3-0.1`
+
+
 
 ## HDMI setup
 
