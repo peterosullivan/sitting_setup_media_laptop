@@ -67,8 +67,25 @@ sudo echo \
 ## DNLA - Sharing - rygel
 Ubuntu 19.10’s new ‘Media Sharing’ toggle in Settings > Sharing means there’s no need to download and install a separate DLNA server client to share media photos, videos and music over your local network.
 
+## Home Assistant 
 
-##Proton VPN
+Password-less Shutdown
+
+Open this file `sudo visudo`
+
+Add this line
+
+`peter ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown`
+
+So, `sudo poweroff` will now result in a password-less shutdown.
+
+In home assisant this shell command in `configuration.yaml`
+```
+shell_command:
+  media_pc_shutdown: ssh -F /config/ssh_config -i /config/.ssh/id_rsa peter@192.168.0.6 'sudo poweroff' 2> /config/command.log
+```
+
+## Proton VPN
 
 Dowloand and install the deb 
 https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb
